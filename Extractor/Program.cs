@@ -31,8 +31,8 @@ class Program
         }
 
         int count = 0;
-        var boxes = sav.Boxes;
-        if (boxes is null)
+        var boxes = sav.BoxData;
+        if (boxes == null)
         {
             Console.WriteLine("Save file does not contain box data.");
             return;
