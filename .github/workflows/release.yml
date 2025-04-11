@@ -2,10 +2,10 @@ name: Extract Pokémon with PKHeX.Core
 
 on:
   push:
-    paths:
-      - '**.sav'
+    #paths:
+    #  - '**.sav'
     branches:
-      - master  # ← updated from main to master
+      - master  
 
 jobs:
   build-and-run:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.0.x'  # ← target .NET 9.0
+          dotnet-version: '9.0.x'  
 
       - name: Restore and Build Extractor
         run: |
