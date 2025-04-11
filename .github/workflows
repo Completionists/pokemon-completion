@@ -1,0 +1,58 @@
+name: Extract Pokémon with PKHeX.Core
+
+on:
+  push:
+    paths:
+      - '**.sav'
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore and Build Extractor
+        run: |
+          cd Extractor
+          dotnet restore
+          dotnet build -c Release
+
+      - name: Find modified .sav files
+        id: savs
+        shell: bash
+        run: |
+          echo "FILES=$(git diff --name-only HEAD^ HEAD | grep '\.sav$' | paste -sd ',' -)" >> $GITHUB_ENV
+
+      - name: Extract Pokémon from saves
+        if: env.FILES != ''
+        run: |
+          mkdir output
+          for file in $(echo $FILES | tr ',' ' '); do
+            name=$(basename "$file" .sav)
+            mkdir "output/$name"
+            dotnet Extractor/bin/Release/net8.0/Extractor.dll "$file" "output/$name"
+          done
+
+      - name: Zip all extracted Pokémon
+        if: env.FILES != ''
+        run: Compress-Archive -Path output -DestinationPath extracted_pokemon.zip
+
+      - name: Create GitHub Release
+        if: env.FILES != ''
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: "release-${{ github.sha }}"
+          name: "PKHeX Extract - ${{ github.sha }}"
+          body: "Pokémon extraídos de los archivos .sav modificados."
+          files: extracted_pokemon.zip
+        env:
+          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
