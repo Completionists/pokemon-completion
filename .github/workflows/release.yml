@@ -5,7 +5,7 @@ on:
     paths:
       - '**.sav'
     branches:
-      - main
+      - master
 
 jobs:
   build-and-run:
