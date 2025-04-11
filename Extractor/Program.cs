@@ -1,6 +1,7 @@
 using PKHeX.Core;
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 class Program
 {
@@ -31,29 +32,14 @@ class Program
         }
 
         int count = 0;
-        var boxes = sav.BoxData;
+        IList<IList<PKM>> boxes = sav.BoxData;
         if (boxes == null)
         {
             Console.WriteLine("Save file does not contain box data.");
             return;
         }
 
-        for (int box = 0; box < boxes.Length; box++)
+        for (int box = 0; box < boxes.Count; box++)
         {
             var boxData = boxes[box];
-            for (int i = 0; i < boxData.Length; i++)
-            {
-                var slot = boxData[i];
-                if (slot != null)
-                {
-                    string ext = slot.Format.ToString(); // e.g., "8"
-                    string outPath = Path.Combine(outputDir, $"box{box + 1}_slot{i + 1}.pk{ext}");
-                    File.WriteAllBytes(outPath, slot.DecryptedBoxData);
-                    count++;
-                }
-            }
-        }
-
-        Console.WriteLine($"Extracted {count} Pokémon to {outputDir}");
-    }
-}
+            for (int i =
