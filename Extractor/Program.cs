@@ -32,7 +32,8 @@ class Program
         }
 
         int count = 0;
-        IList<IList<PKM>> boxes = sav.BoxData;
+        IList<PKM[]> boxes = sav.BoxData; // ← corregido tipo
+
         if (boxes == null)
         {
             Console.WriteLine("Save file does not contain box data.");
@@ -42,10 +43,10 @@ class Program
         for (int box = 0; box < boxes.Count; box++)
         {
             var boxData = boxes[box];
-            for (int i = 0; i < boxData.Count; i++)
+            for (int i = 0; i < boxData.Length; i++)
             {
                 var slot = boxData[i];
-                if (slot != null && !slot.IsEmpty)
+                if (slot != null && slot.Species != 0) // ← comprobación válida de que hay un Pokémon
                 {
                     string ext = slot.Format.ToString(); // e.g., "8"
                     string outPath = Path.Combine(outputDir, $"box{box + 1}_slot{i + 1}.pk{ext}");
