@@ -42,4 +42,19 @@ class Program
         for (int box = 0; box < boxes.Count; box++)
         {
             var boxData = boxes[box];
-            for (int i =
+            for (int i = 0; i < boxData.Count; i++)
+            {
+                var slot = boxData[i];
+                if (slot != null && !slot.IsEmpty)
+                {
+                    string ext = slot.Format.ToString(); // e.g., "8"
+                    string outPath = Path.Combine(outputDir, $"box{box + 1}_slot{i + 1}.pk{ext}");
+                    File.WriteAllBytes(outPath, slot.DecryptedBoxData);
+                    count++;
+                }
+            }
+        }
+
+        Console.WriteLine($"Extracted {count} Pokémon to {outputDir}");
+    }
+}
