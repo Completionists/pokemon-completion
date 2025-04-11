@@ -31,9 +31,16 @@ class Program
         }
 
         int count = 0;
-        for (int box = 0; box < sav.BoxCount; box++)
+        var boxes = sav.Boxes;
+        if (boxes is null)
         {
-            var boxData = sav.GetBox(box);
+            Console.WriteLine("Save file does not contain box data.");
+            return;
+        }
+
+        for (int box = 0; box < boxes.Length; box++)
+        {
+            var boxData = boxes[box];
             for (int i = 0; i < boxData.Length; i++)
             {
                 var slot = boxData[i];
