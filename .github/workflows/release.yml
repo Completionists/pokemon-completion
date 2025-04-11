@@ -5,7 +5,7 @@ on:
     paths:
       - '**.sav'
     branches:
-      - master
+      - master  # ← updated from main to master
 
 jobs:
   build-and-run:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x'
+          dotnet-version: '9.0.x'  # ← target .NET 9.0
 
       - name: Restore and Build Extractor
         run: |
@@ -39,7 +39,7 @@ jobs:
           for file in $(echo $FILES | tr ',' ' '); do
             name=$(basename "$file" .sav)
             mkdir "output/$name"
-            dotnet Extractor/bin/Release/net8.0/Extractor.dll "$file" "output/$name"
+            dotnet Extractor/bin/Release/net9.0/Extractor.dll "$file" "output/$name"
           done
 
       - name: Zip all extracted Pokémon
@@ -55,4 +55,4 @@ jobs:
           body: "Pokémon extraídos de los archivos .sav modificados."
           files: extracted_pokemon.zip
         env:
-          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,19 +1,32 @@
-using System.IO;
 using PKHeX.Core;
+using System;
+using System.IO;
 
 class Program
 {
     static void Main(string[] args)
     {
-        string savFile = args[0];
-        string outputDir = args[1];
-        Directory.CreateDirectory(outputDir);
+        if (args.Length < 2)
+        {
+            Console.WriteLine("Usage: Extractor <input.sav> <output-folder>");
+            return;
+        }
 
-        var data = File.ReadAllBytes(savFile);
+        string inputFile = args[0];
+        string outputDir = args[1];
+
+        if (!File.Exists(inputFile))
+        {
+            Console.WriteLine($"File not found: {inputFile}");
+            return;
+        }
+
+        Directory.CreateDirectory(outputDir);
+        var data = File.ReadAllBytes(inputFile);
         var sav = SaveUtil.GetVariantSAV(data);
         if (sav == null)
         {
-            Console.WriteLine("Invalid save file.");
+            Console.WriteLine("Failed to load save file.");
             return;
         }
 
@@ -21,17 +34,19 @@ class Program
         for (int box = 0; box < sav.BoxCount; box++)
         {
             var boxData = sav.GetBox(box);
-            foreach (var slot in boxData)
+            for (int i = 0; i < boxData.Length; i++)
             {
+                var slot = boxData[i];
                 if (slot != null)
                 {
-                    string fname = Path.Combine(outputDir, $"box{box}_slot{count}.pk{slot.Format}");
-                    File.WriteAllBytes(fname, slot.DecryptedBoxData);
+                    string ext = slot.Format.ToString(); // e.g., "8"
+                    string outPath = Path.Combine(outputDir, $"box{box + 1}_slot{i + 1}.pk{ext}");
+                    File.WriteAllBytes(outPath, slot.DecryptedBoxData);
                     count++;
                 }
             }
         }
 
-        Console.WriteLine($"Extracted {count} Pokémon.");
+        Console.WriteLine($"Extracted {count} Pokémon to {outputDir}");
     }
 }
