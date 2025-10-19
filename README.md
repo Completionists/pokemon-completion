@@ -18,7 +18,7 @@ At the same time, we want to keep our Pokémons both in original hardware with c
 
 We also skip the rules imposed on Pokémon transfer between generation if possible, in order to start a new run with all of our favorite Pokémon / Pokédex already loaded in the save, taking advanatge of the superior transfer mechanisms between gens when using Pokehex.
 
-Another condition is that for completing the Pokédex we will not be taking the Pokémon that we possibly have in each generation, instead we will replaying the game. We will only use old saves to retrieve our favourite / combat Pokémon.
+Another condition is that for completing the Pokédex we will be taking the Pokémon that we possibly have in previous saves, instead of replaying the game. We will use the Pokémon of other save files as much as possible in order to have a lot of different OT (original trainers) in our Pokédex, reflecting a lot of our runs from when we were children.
 
 
 
@@ -63,20 +63,45 @@ The challenges of this stage were:
 # Tranfer 3rd gen to 4th gen
 In the hardware of the original Nintendo DS, it was possible to insert a GBA Pokémon game with a NDS pokémon game and there was a mechanism to transfer from the first to the least. The problems is that if you do not have your saves in phisical cartridges and an original Nintendo DS you can't do it. But what we can do is emulate a NDS with DeSmuME and virtually insert a GBA Pokémon game with our save files and run the NDS game to transfer the Pokémon. All 4th gen games have this capabilility, but it is limited to tranfer only 6 Pokémon per day, which is not acceptable. Only HeartGold and SoulSilver do not have this limitation, but the problem is that these Pokémon games were difficult to work in an original 3DS hardware with custom firmware. 
 
-Due to this limitation, we finally end up using Pokehex directly to extract all Pokémon from the saves of 3rd gen, and then load them into our recently created 4th gen save, in Pokémon Platinum and HeartGold. This was very fast and easier, much more that it would have been using the built-in transfer features, as you need to complete a minigame for each 6 Pokémon that you want to transfer.
+Due to this limitation, we finally end up using Pokehex directly to extract all Pokémon from the saves of 3rd gen, and then load them into our 4th gen save, in Pokémon Platinum. This was very fast and easier, much more that it would have been using the built-in transfer features, as you also need to complete a minigame for each 6 Pokémon that you want to transfer.
 
-With this we had 
+This happened WHILE completing the Pokédex of the 4th gen in Pokémon platinum. 
+
+At some point, when we were satisfied with our run, we "forked" the save so that there is another version of that save that instead of our Pokédex has all our favourite Pokémons transfered from 3rd gen. 
 
 
+# 4th gen
+I played Pokémon platinum until we got a lot of 4th gen pokémon and we were ready to transfer the pokémon from 3rd gen. At that point, we forked the save file and in one version of the saves we kept going on the completion of the Pokédex and in the other we transfered our favourite /combat Pokémon.
 
+## Challenges
+- Spiritomb: We needed to talk to each other on the subterranean many times in order to get spiritomb to appear.
 
+# Tranfer from 4th gen to 5th gen
+We directly used Pokehex to transfer from the 4th to the 5th, so we started a run in Pokémon Black 2 with all Pokédex from 1st to 4th gen completed + some Pokémon from the 5th gen that we could get from previous saves. 
 
-## Current stage
+# 5th gen
+We played Pokémon Black 2 as the main game to complete the Pokédex. As in the previous gen, we forked the save so that one version contains all the Pokédex and another version contains all of our favourite Pokémon
+
+# Transfer from 5th gen to 6th gen
+We started a run of Pokémon X and then we trasnfered all of our Pokémon using Pokehex into the start of the run. We also made a run of Alpha Saphire in where we transfered all of our favourite Pokémon. 
+
+# 6th gen
+We played Pokémon X, pokémon Y and Alpha Saphire and Rubi and we extracted the exclusives from those games. We reunited all the favourite / combat Pokémon from the games in Alpha Saphire and we put the Pokédex in Pokémon X.
+
+# Transfer from 6th gen to 7th gen
+The combat Pokémon are not yet transfered, but the save will be forked for that. The Pokédex was transfered to UltraMoon at the start.
+
+# 7th gen
+We started a run in Ultramoon and transfered everything from the Pokedex of the previous gen. We also injected all events at the start. We played Ultrasun for the exclusives. 
+
+## Current stage Transfer from 7th gen to 8th gen (Pokémon Home)
+We completed the Pokédex and now we are going to make a transfer, as now the games sadly do not have all Pokémon inside, so you can't actually complete the Pokédex in one Nintendo Switch game. Instead, waht you can do is have Pokémon Home, which you need to subscribe to fully use or you can go with the free tier, which is very limited. 
+
+Also, there is the problem that we want to play the games in real hardware but custom firmware, which means that you can't go online in a Switch game such as Pokémon Home. Of course, you can use Pokémon Home in Stock mode, but in there we do not have our save file and we can't access any program to do it because we are in Stock mode. So, what we decided to do was to enter into sysNAND mode, which actually loads your Stock data, but it also loads atmosphere. In this mode, you can access the homebrew Checkpoint to inject your save into the Pokémon game that you desire. After that, you can enter Stock mode and from Pokémon Home transfer the Pokémon from the save file from the CFW, because you actually injected the save in the Stock. In any case, this allows us to play the game in CFW while reatining the capability of transfering the Pokémon to Pokémon Home without risk of baning. The only limitation is that you need to have created a save file for the game that you want to transfer the Pokémon to, which means that you need to at least have the phisical cartridge just to create a save game in your Stock system that you can overwrite with the save file from the CFW later.
+
 We are currently stopped at the transition between the 7th gen and the 8th gen. We are gathering the Pokémons in 7th gen, which already has a completed Pokédex, to transfer them into gen 8th.
 
 We want also to transfer Pokémons that are on saved games of previous generation that we found on the saves of other people after completing that generation. 
-
-
 
 In this generation Game Freak decided that you could only "catch'em all" if you pay a monthly suscription to Pokémon Home. This is due to the switch games (8th gen) having only a specific regional Pokédex, with some Pokémon missing in each game and even Pokémons not appearing in any game (you need to transfer them either from previous gens or from Pokémon Go). This means that to keep a living dex in the original games you need to use Pokémon Home. 
 
