@@ -105,6 +105,6 @@ We want also to transfer Pokémons that are on saved games of previous generatio
 
 In this generation Game Freak decided that you could only "catch'em all" if you pay a monthly suscription to Pokémon Home. This is due to the switch games (8th gen) having only a specific regional Pokédex, with some Pokémon missing in each game and even Pokémons not appearing in any game (you need to transfer them either from previous gens or from Pokémon Go). This means that to keep a living dex in the original games you need to use Pokémon Home. 
 
-in the Pokémon playing. The first one is that they 
+We would also like to extract some other Pokémon from previous saves and from some cartridges that I acquired from my neighbour. 
 
 
